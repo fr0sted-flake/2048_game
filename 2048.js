@@ -50,20 +50,19 @@ function updateTile(tile, number) {
 document.addEventListener("keyup", (e) => {
   if (e.code == "ArrowLeft") {
     slideLeft();
-  }
-
-else if (e.code == "ArrowRight") {
+  } else if (e.code == "ArrowRight") {
     slideRight();
-  }
-
-else if (e.code == "ArrowUp") {
+  } else if (e.code == "ArrowUp") {
     slideUp();
-  }
-
-else if (e.code == "ArrowDown") {
+  } else if (e.code == "ArrowDown") {
     slideDown();
   }
+});
 
+function slideLeft() {
+  for (let r = 0; r < rows; r++) {
+    let row = board[r];
+    row = slide(row);
+    board[r] = row;
+  }
 }
-
-);
