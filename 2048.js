@@ -62,7 +62,7 @@ document.addEventListener("keyup", (e) => {
 function slide(row) {
   row = filterZero(row); //to filter the 0 in the row array
 
-  for (let i = 0; i <= row.length - 1; i++) {
+  for (let i = 0; i < row.length - 1; i++) {
     //it applies the logic of doubling the number in the tile
     if (row[i] == row[i + 1]) {
       row[i] *= 2;
@@ -76,9 +76,9 @@ function slide(row) {
   while (row.length < columns) {
     // as long as its length is not equal to 4 it keeps on adding 0
     row.push(0);
-
-    return row;
   }
+    return row;
+  
 }
 
 function filterZero(row) {
@@ -86,31 +86,28 @@ function filterZero(row) {
 }
 
 function slideLeft() {
-  for (let r = 0; r < rows; r++) {
-    let row = board[r];
-    row = slide(row);
-    board[r] = row;
-
-    for (let c = 0; c < columns; c++) {
-      let tile = document.getElementById(r.toString() + "-" + c.toString());
-      let number = board[r][c];
-      updateTile(tile, number);
+    for (let r = 0; r < rows; r++) {
+        let row = board[r];
+        row = slide(row);
+        board[r] = row;
+        for (let c = 0; c < columns; c++){
+            let tile = document.getElementById(r.toString() + "-" + c.toString());
+            let num = board[r][c];
+            updateTile(tile, num);
+        }
     }
-  }
 }
 
 function slideRight() {
-  for (let r = 0; r < rows; r++) {
-    let row = board[r];
-    row = row.reverse();
-    row = slide(row);
-    row = row.reverse();
-    board[r] = row;
-
-    for (let c = 0; c < columns; c++) {
-      let tile = document.getElementById(r.toString() + "-" + c.toString());
-      let number = board[r][c];
-      updateTile(tile, number);
+    for (let r = 0; r < rows; r++) {
+        let row = board[r];         //[0, 2, 2, 2]
+        row.reverse();              //[2, 2, 2, 0]
+        row = slide(row)            //[4, 2, 0, 0]
+        board[r] = row.reverse();   //[0, 0, 2, 4];
+        for (let c = 0; c < columns; c++){
+            let tile = document.getElementById(r.toString() + "-" + c.toString());
+            let number = board[r][c];
+            updateTile(tile, number);
+        }
     }
-  }
 }
