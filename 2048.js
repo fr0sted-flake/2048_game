@@ -142,6 +142,9 @@ function slideDown() {
 
 
 function addTwoToStartGame() {
+    if (!hasEmptyTile()) {
+        return;
+    }
     let found = false;
     while (!found) {
         //find random row and column to place a 2 in
@@ -155,4 +158,17 @@ function addTwoToStartGame() {
             found = true;
         }
     }
+}
+
+
+function hasEmptyTile() {
+    let count = 0;
+    for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < columns; c++) {
+            if (board[r][c] == 0) { //at least one zero in the board
+                return true;
+            }
+        }
+    }
+    return false;
 }
