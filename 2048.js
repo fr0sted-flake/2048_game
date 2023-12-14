@@ -66,3 +66,11 @@ function slideLeft() {
     board[r] = row;
   }
 }
+
+function slide(row) {
+    row = filterZero(row);
+}
+
+function filterZero(row) {
+    return row.filter(number => number !=0);
+}
