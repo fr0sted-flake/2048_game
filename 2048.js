@@ -51,4 +51,19 @@ document.addEventListener("keyup", (e) => {
   if (e.code == "ArrowLeft") {
     slideLeft();
   }
-});
+
+else if (e.code == "ArrowRight") {
+    slideRight();
+  }
+
+else if (e.code == "ArrowUp") {
+    slideUp();
+  }
+
+else if (e.code == "ArrowDown") {
+    slideDown();
+  }
+
+}
+
+);
