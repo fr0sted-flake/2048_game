@@ -14,14 +14,18 @@ function startGame() {
     [0, 0, 0, 0],
     [0, 0, 0, 0],
   ];
+
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < columns; c++) {
+      let tile = document.createElement("div");
+      tile.id = r.toString() + "-" + c.toString();
+      let number = board[r][c];
+      updateTile(tile, number);
+    }
+  }
 }
 
-
-for( let r = 0; r<rows; r++){
-    for (let c=0; c<columns; c++){
-        let tile= document.createElement("div");
-        tile.id =r.toString()+"-"+c.toString();
-        let number =board[r][c];
-        
-    }
+function updateTile(tile, number) {
+    tile.innerText= "";
+    tile.classList.value="";  // to clear the class name values
 }
