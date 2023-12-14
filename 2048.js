@@ -8,11 +8,18 @@ window.onload = function () {
 };
 
 function startGame() {
+  //   board = [
+  //     [2, 0, 0, 0],
+  //     [0, 4, 0, 0],
+  //     [0, 0, 16, 0],
+  //     [0, 0, 0, 0],
+  //   ];
+
   board = [
-    [0, 0, 0, 0],
-    [0, 0, 0, 0],
-    [0, 0, 0, 0],
-    [0, 0, 0, 0],
+    [2, 2, 2, 2],
+    [2, 2, 2, 2],
+    [4, 4, 8, 8],
+    [4, 4, 8, 8],
   ];
 
   for (let r = 0; r < rows; r++) {
@@ -21,7 +28,8 @@ function startGame() {
       tile.id = r.toString() + "-" + c.toString();
       let number = board[r][c];
       updateTile(tile, number);
-      document.getElementById("board").append(tile);   }
+      document.getElementById("board").append(tile);
+    }
   }
 }
 
@@ -34,7 +42,13 @@ function updateTile(tile, number) {
     if (number <= 4096) {
       tile.classList.add("x" + number.toString());
     } else {
-      tile.classList.add("x8192");     // styles all the tiles from and after 8192 according to class x8192
+      tile.classList.add("x8192"); // styles all the tiles from and after 8192 according to class x8192
     }
   }
 }
+
+document.addEventListener("keyup", (e) => {
+  if (e.code == "ArrowLeft") {
+    slideLeft();
+  }
+});
