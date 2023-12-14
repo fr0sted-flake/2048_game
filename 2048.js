@@ -21,7 +21,7 @@ function startGame() {
       tile.id = r.toString() + "-" + c.toString();
       let number = board[r][c];
       updateTile(tile, number);
-    }
+      document.getElementById("board").append(tile);   }
   }
 }
 
@@ -34,7 +34,7 @@ function updateTile(tile, number) {
     if (number <= 4096) {
       tile.classList.add("x" + number.toString());
     } else {
-      tile.classList.add("x8192");
+      tile.classList.add("x8192");     // styles all the tiles from and after 8192 according to class x8192
     }
   }
 }
