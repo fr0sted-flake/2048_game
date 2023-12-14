@@ -149,7 +149,10 @@ function addTwoToStartGame() {
         let c = Math.floor(Math.random() * columns);
         if (board[r][c] == 0) {
             board[r][c] = 2;
-            
+            let tile = document.getElementById(r.toString() + "-" + c.toString());
+            tile.innerText = "2";
+            tile.classList.add("x2");
+            found = true;
         }
     }
 }
