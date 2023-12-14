@@ -119,6 +119,11 @@ function slideUp() {
         board[1][c] = row[1];
         board[2][c] = row[2];
         board[3][c] = row[3];
-        
+        for (let r = 0; r < rows; r++){
+            
+            let tile = document.getElementById(r.toString() + "-" + c.toString());
+            let num = board[r][c];
+            updateTile(tile, num);
+        }
     }
 }
