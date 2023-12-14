@@ -64,6 +64,12 @@ function slideLeft() {
     let row = board[r];
     row = slide(row);
     board[r] = row;
+
+    for (let c = 0; c < columns; c++){
+        let tile = document.getElementById(r.toString() + "-" + c.toString());
+        let num = board[r][c];
+        updateTile(tile, num);
+    }
   }
 }
 
@@ -84,6 +90,8 @@ function slide(row) {
   while (row.length < columns) {
     // as long as its length is not equal to 4 it keeps on adding 0
     row.push(0);
+
+    return row;
   }
 }
 
