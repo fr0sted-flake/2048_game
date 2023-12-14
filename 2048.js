@@ -8,19 +8,19 @@ window.onload = function () {
 };
 
 function startGame() {
-  //   board = [
-  //     [2, 0, 0, 0],
-  //     [0, 4, 0, 0],
-  //     [0, 0, 16, 0],
-  //     [0, 0, 0, 0],
-  //   ];
+    board = [
+      [0, 0, 0, 0],
+      [0, 0, 0, 0],
+      [0, 0, 0, 0],
+      [0, 0, 0, 0],
+    ];
 
-  board = [
-    [2, 2, 2, 2],
-    [2, 2, 2, 2],
-    [4, 4, 8, 8],
-    [4, 4, 8, 8],
-  ];
+//   board = [
+//     [2, 2, 2, 2],
+//     [2, 2, 2, 2],
+//     [4, 4, 8, 8],
+//     [4, 4, 8, 8],
+//   ];
 
   for (let r = 0; r < rows; r++) {
     for (let c = 0; c < columns; c++) {
@@ -31,6 +31,9 @@ function startGame() {
       document.getElementById("board").append(tile);
     }
   }
+
+  addTwoToStartGame();
+  addTwoToStartGame();
 }
 
 function updateTile(tile, number) {
