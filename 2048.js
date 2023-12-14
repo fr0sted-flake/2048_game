@@ -68,9 +68,17 @@ function slideLeft() {
 }
 
 function slide(row) {
-    row = filterZero(row);
+  row = filterZero(row); //to filter the 0 in the row array
+
+  for (let i = 0; i <= row.length - 1; i++) {  //it appkies the logic of doubling the number in the tile
+    if (row[i] == row[i + 1]) {
+        row[i] *=2;
+        row[i+1]=0
+        score +=row[i];
+    }
+  }
 }
 
 function filterZero(row) {
-    return row.filter(number => number !=0);
+  return row.filter((number) => number != 0);
 }
