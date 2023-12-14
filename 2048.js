@@ -26,6 +26,15 @@ function startGame() {
 }
 
 function updateTile(tile, number) {
-    tile.innerText= "";
-    tile.classList.value="";  // to clear the class name values
+  tile.innerText = "";
+  tile.classList.value = ""; // to clear the class name values
+  tile.classList.add("tile");
+  if (number > 0) {
+    tile.innerText = number;
+    if (number <= 4096) {
+      tile.classList.add("x" + number.toString());
+    } else {
+      tile.classList.add("x8192");
+    }
+  }
 }
