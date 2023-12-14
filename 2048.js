@@ -77,8 +77,7 @@ function slide(row) {
     // as long as its length is not equal to 4 it keeps on adding 0
     row.push(0);
   }
-    return row;
-  
+  return row;
 }
 
 function filterZero(row) {
@@ -86,28 +85,40 @@ function filterZero(row) {
 }
 
 function slideLeft() {
-    for (let r = 0; r < rows; r++) {
-        let row = board[r];
-        row = slide(row);
-        board[r] = row;
-        for (let c = 0; c < columns; c++){
-            let tile = document.getElementById(r.toString() + "-" + c.toString());
-            let num = board[r][c];
-            updateTile(tile, num);
-        }
+  for (let r = 0; r < rows; r++) {
+    let row = board[r];
+    row = slide(row);
+    board[r] = row;
+    for (let c = 0; c < columns; c++) {
+      let tile = document.getElementById(r.toString() + "-" + c.toString());
+      let num = board[r][c];
+      updateTile(tile, num);
     }
+  }
 }
 
 function slideRight() {
-    for (let r = 0; r < rows; r++) {
-        let row = board[r];         //[0, 2, 2, 2]
-        row.reverse();              //[2, 2, 2, 0]
-        row = slide(row)            //[4, 2, 0, 0]
-        board[r] = row.reverse();   //[0, 0, 2, 4];
-        for (let c = 0; c < columns; c++){
-            let tile = document.getElementById(r.toString() + "-" + c.toString());
-            let number = board[r][c];
-            updateTile(tile, number);
-        }
+  for (let r = 0; r < rows; r++) {
+    let row = board[r];
+    row.reverse();
+    row = slide(row);
+    board[r] = row.reverse();
+    for (let c = 0; c < columns; c++) {
+      let tile = document.getElementById(r.toString() + "-" + c.toString());
+      let number = board[r][c];
+      updateTile(tile, number);
+    }
+  }
+}
+
+function slideUp() {
+    for (let c = 0; c < columns; c++) {
+        let row = [board[0][c], board[1][c], board[2][c], board[3][c]];
+        row = slide(row);
+        board[0][c] = row[0];
+        board[1][c] = row[1];
+        board[2][c] = row[2];
+        board[3][c] = row[3];
+        
     }
 }
