@@ -70,12 +70,20 @@ function slideLeft() {
 function slide(row) {
   row = filterZero(row); //to filter the 0 in the row array
 
-  for (let i = 0; i <= row.length - 1; i++) {  //it appkies the logic of doubling the number in the tile
+  for (let i = 0; i <= row.length - 1; i++) {
+    //it applies the logic of doubling the number in the tile
     if (row[i] == row[i + 1]) {
-        row[i] *=2;
-        row[i+1]=0
-        score +=row[i];
+      row[i] *= 2;
+      row[i + 1] = 0;
+      score += row[i];
     }
+  }
+
+  row = filterZero(row); // again filter the middle zeroes in the array
+
+  while (row.length < columns) {
+    // as long as its length is not equal to 4 it keeps on adding 0
+    row.push(0);
   }
 }
 
