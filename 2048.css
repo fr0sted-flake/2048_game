@@ -5,7 +5,8 @@ body{
 
 hr
 {
-    width: 500px;
+    width: 80%; 
+    margin: 0 auto;
 }
 
 #board {
@@ -32,6 +33,31 @@ hr
     justify-content: center;
     align-items: center;
 }
+
+@media only screen and (max-width: 600px){
+    #board {
+        width: 80%;
+        height: width;
+    }
+
+    .tile {
+        width: 20%; /* 25% of 80% */
+        height: width; /* 25% of 80% */
+    }
+}
+
+@media only screen and (max-height: 600px){
+    #board {
+        height: 80%;
+        width: height;
+    }
+
+    .tile {
+        height: 20%; /* 25% of 80% */
+        width: height; /* 25% of 80% */
+    }
+}
+
 
 .x2 {
     background-color: #eee4da;
